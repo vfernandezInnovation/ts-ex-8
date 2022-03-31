@@ -1,95 +1,50 @@
 export class Tournament {
   nav: string = "Team                           | MP |  W |  D |  L |  P";
   teams: team[] = [];
-  teamsName: string[] = [];
   public tally(input: string): string {
-    let resutlado: string = this.nav + "\n";
+    let resultado = this.nav + "\n";
     if (input == "") return this.nav;
     input = input.replace(/\n/g, ";");
     let arrayTeams: string[] = input.split(";");
     for (var i = arrayTeams.length - 1; i >= 0; i -= 3) {
       if (arrayTeams[i] == "win") {
-        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 1])) {
-          this.teams.push(new team(arrayTeams[i - 1], 1, 0, 0, 1, 0));
-          this.teamsName.push(arrayTeams[i - 1]);
-        } else {
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].match += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].lose += 1;
+        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 1]))this.teams.push(new team(arrayTeams[i - 1], 1, 0, 0, 1, 0));
+        else {
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].match += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].lose += 1;
         }
-        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 2])) {
-          this.teams.push(new team(arrayTeams[i - 2], 1, 1, 0, 0, 3));
-          this.teamsName.push(arrayTeams[i - 2]);
-        } else {
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].match += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].win += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].point += 3;
+        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 2]))this.teams.push(new team(arrayTeams[i - 2], 1, 1, 0, 0, 3));
+        else {
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].match += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].win += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].point += 3;
         }
       }
       if (arrayTeams[i] == "draw") {
-        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 2])) {
-          this.teams.push(new team(arrayTeams[i - 2], 1, 0, 1, 0, 1));
-          this.teamsName.push(arrayTeams[i - 2]);
-        } else {
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].match += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].draw += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].point += 1;
+        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 2]))this.teams.push(new team(arrayTeams[i - 2], 1, 0, 1, 0, 1));
+        else {
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].match += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].draw += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].point += 1;
         }
-        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 1])) {
-          this.teams.push(new team(arrayTeams[i - 1], 1, 0, 1, 0, 1));
-          this.teamsName.push(arrayTeams[i - 1]);
-        } else {
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].match += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].draw += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].point += 1;
+        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 1]))this.teams.push(new team(arrayTeams[i - 1], 1, 0, 1, 0, 1));
+        else {
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].match += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].draw += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].point += 1;
         }
       }
       if (arrayTeams[i] == "loss") {
-        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 1])) {
-          this.teams.push(new team(arrayTeams[i - 1], 1, 1, 0, 0, 3));
-          this.teamsName.push(arrayTeams[i - 1]);
-        } else {
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].match += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].win += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])
-          ].point += 3;
+        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 1]))this.teams.push(new team(arrayTeams[i - 1], 1, 1, 0, 0, 3));
+        else {
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].match += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].win += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 1])].point += 3;
         }
-        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 2])) {
-          this.teams.push(new team(arrayTeams[i - 2], 1, 0, 0, 1, 0));
-          this.teamsName.push(arrayTeams[i - 2]);
-        } else {
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].match += 1;
-          this.teams[
-            this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])
-          ].lose += 1;
+        if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 2]))this.teams.push(new team(arrayTeams[i - 2], 1, 0, 0, 1, 0));
+        else {
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].match += 1;
+          this.teams[this.teams.map((object) => object.name).indexOf(arrayTeams[i - 2])].lose += 1;
         }
       }
     }
@@ -104,10 +59,10 @@ export class Tournament {
       return -1;
     });
     this.teams.forEach((name, index, array) => {
-      resutlado += name.build();
-      array.length - 1 == index ? (resutlado += "") : (resutlado += "\n");
+      resultado += name.build();
+      array.length - 1 == index ? (resultado += "") : (resultado += "\n");
     });
-    return resutlado;
+    return resultado;
   }
 }
 class team {
@@ -117,14 +72,7 @@ class team {
   draw: number = 0;
   lose: number = 0;
   point: number = 0;
-  constructor(
-    name: string,
-    match: number,
-    win: number,
-    draw: number,
-    lose: number,
-    point: number
-  ) {
+  constructor( name: string, match: number, win: number, draw: number, lose: number, point: number) {
     this.name = name;
     this.match = match;
     this.win = win;
@@ -133,35 +81,19 @@ class team {
     this.point = point;
   }
   public build(): string {
-    return (
-      addSpace(this.name) +
-      "|  " +
-      this.match +
-      " |  " +
-      this.win +
-      " |  " +
-      this.draw +
-      " |  " +
-      this.lose +
-      " |" +
-      createPoints(this.point)
-    );
+    return (addSpace(this.name) + "|  " + this.match + " |  " + this.win + " |  " + this.draw + " |  " + this.lose + " |" + createPoints(this.point));
   }
 }
 function addSpace(name: string): string {
-  let n: number = 31 - name.length;
-  for (var i = 0; i < n; i++) {
+  for (var i = name.length; i < 31; i++) {
     name += " ";
   }
   return name;
 }
 function createPoints(n: number) {
-  let tmp: string = n + "";
-  let num: number = 3 - tmp.length;
   let resutlado: string = n + "";
-  for (let i = 0; i < num; i++) {
+  for (let i = (n + "").length; i < 3; i++) {
     resutlado = " " + resutlado;
   }
   return resutlado;
 }
-
