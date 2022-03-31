@@ -58,7 +58,7 @@ export class Tournament {
       return -1;
     });
     this.teams.forEach((name, index, array) => {
-      resultado += name.build();
+      resultado += addSpace(name.name) + "|  " + name.match + " |  " + name.win + " |  " + name.draw + " |  " + name.lose + " |" + createPoints(name.point);
       array.length - 1 == index ? (resultado += "") : (resultado += "\n");
     });
     return resultado;
@@ -78,9 +78,6 @@ class team {
     this.draw = draw;
     this.lose = lose;
     this.point = point;
-  }
-  public build(): string {
-    return (addSpace(this.name) + "|  " + this.match + " |  " + this.win + " |  " + this.draw + " |  " + this.lose + " |" + createPoints(this.point));
   }
 }
 function addSpace(name: string): string {
