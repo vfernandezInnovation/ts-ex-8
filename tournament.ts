@@ -4,8 +4,7 @@ export class Tournament {
   public tally(input: string): string {
     let resultado = this.nav + "\n";
     if (input == "") return this.nav;
-    input = input.replace(/\n/g, ";");
-    let arrayTeams: string[] = input.split(";");
+    let arrayTeams: string[] = input.replace(/\n/g, ";").split(";");
     for (var i = arrayTeams.length - 1; i >= 0; i -= 3) {
       if (arrayTeams[i] == "win") {
         if (!this.teams.map((object) => object.name).includes(arrayTeams[i - 1]))this.teams.push(new team(arrayTeams[i - 1], 1, 0, 0, 1, 0));
