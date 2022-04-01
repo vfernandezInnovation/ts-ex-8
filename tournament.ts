@@ -11,27 +11,23 @@ export class Tournament {
         if (!this.teams.map((object) => object.name).includes(arrayPartido[k]) && k != 0) this.teams.push(new team(arrayPartido[k]));
         if (arrayPartido[0] == "win") {
           if (k == 1) {
-            this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].match += 1;
             this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].lose += 1;
           } else {
-            this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].match += 1;
             this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].win += 1;
             this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].point += 3;
           }
         } else if (arrayPartido[0] == "draw") {
-           this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].match += 1;
            this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].draw += 1;
            this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].point += 1;
         }else if(arrayPartido[0] == "loss"){
           if (k == 1) {
-            this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].match += 1;
             this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].win += 1;
             this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].point += 3;
           } else {
-            this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].match += 1;
             this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].lose += 1;
           }
         }
+        this.teams[this.teams.map((object) => object.name).indexOf(arrayPartido[k])].match += 1;
 
       }
     }
